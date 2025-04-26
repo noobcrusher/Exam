@@ -23,21 +23,25 @@
         html {
             margin: 0;
             padding: 0;
-            background: #333333; /* Match body background */
+            background: #333333;
             height: 100%;
             overflow-y: auto;
         }
         body {
-            font-family: Arial, sans-serif;
-            margin: 0 auto;
-            padding: 10px;
+            margin: 0;
+            padding: 0;
             background: #333333;
             color: #F5F5F5;
+            font-family: Arial, sans-serif;
             font-size: 12px;
-            min-height: 150vh; /* Force scrollable height */
+            min-height: 150vh;
             overflow-y: auto;
             -webkit-overflow-scrolling: touch;
-            overscroll-behavior: none; /* Prevent default overscroll effects */
+            overscroll-behavior: none;
+        }
+        .container {
+            padding: 10px;
+            margin: 0 auto;
         }
         details {
             margin-bottom: 10px;
@@ -78,7 +82,7 @@
             min-height: 48px;
         }
         @media (max-width: 400px) {
-            body {
+            .container {
                 padding: 5px;
             }
             summary {
@@ -90,44 +94,45 @@
             }
         }
         @media (max-aspect-ratio: 1/1) {
-            body {
+            .container {
                 border-radius: 50%;
-                width: 100vmin;
-                min-height: 100vmin; /* Ensure it fills the viewport */
+                width: 90vmin; /* Slightly smaller to fit watch screen */
+                min-height: 90vmin;
                 margin: 0 auto;
-                padding: 10px;
                 box-sizing: border-box;
             }
         }
     </style>
 </head>
 <body>
-    <details>
-        <summary>Section: Interpolation Example</summary>
-        <div class="content">
-            Interpolate for $γ=0.75$:<br>
-            $\frac{M_{ny0}}{f_c' A_g h_y} = \frac{0.212 + 0.235}{2} = 0.2235 \approx 0.224$<br>
-            $M_{ny0} = 0.224 \times 4 \times 240 \times 20 = 4300.8 \, \text{in-kips}$
-        </div>
-    </details>
-    <details>
-        <summary>Section: Test LaTeX</summary>
-        <div class="content">Test equation: $x^2 + y^2 = z^2$</div>
-    </details>
-    <details>
-        <summary>Section: Dummy 1</summary>
-        <div class="content">Dummy content to enable scrolling.</div>
-    </details>
-    <details>
-        <summary>Section: Dummy 2</summary>
-        <div class="content">More content for scrolling.</div>
-    </details>
-    <details>
-        <summary>Section: Dummy 3</summary>
-        <div class="content">Keep adding to test.</div>
-    </details>
-    <textarea id="newPost" placeholder="Enter section title and LaTeX (e.g., Title: $E=mc^2$)"></textarea>
-    <button onclick="addPost()">Add Section</button>
+    <div class="container">
+        <details>
+            <summary>Section: Interpolation Example</summary>
+            <div class="content">
+                Interpolate for $γ=0.75$:<br>
+                $\frac{M_{ny0}}{f_c' A_g h_y} = \frac{0.212 + 0.235}{2} = 0.2235 \approx 0.224$<br>
+                $M_{ny0} = 0.224 \times 4 \times 240 \times 20 = 4300.8 \, \text{in-kips}$
+            </div>
+        </details>
+        <details>
+            <summary>Section: Test LaTeX</summary>
+            <div class="content">Test equation: $x^2 + y^2 = z^2$</div>
+        </details>
+        <details>
+            <summary>Section: Dummy 1</summary>
+            <div class="content">Dummy content to enable scrolling.</div>
+        </details>
+        <details>
+            <summary>Section: Dummy 2</summary>
+            <div class="content">More content for scrolling.</div>
+        </details>
+        <details>
+            <summary>Section: Dummy 3</summary>
+            <div class="content">Keep adding to test.</div>
+        </details>
+        <textarea id="newPost" placeholder="Enter section title and LaTeX (e.g., Title: $E=mc^2$)"></textarea>
+        <button onclick="addPost()">Add Section</button>
+    </div>
 
     <script>
         function addPost() {
@@ -137,7 +142,7 @@
                 const content = contentParts.join(':').trim();
                 const details = document.createElement('details');
                 details.innerHTML = `<summary>${title.trim()}</summary><div class="content">${content}</div>`;
-                document.body.insertBefore(details, document.getElementById('newPost'));
+                document.querySelector('.container').insertBefore(details, document.getElementById('newPost'));
                 document.getElementById('newPost').value = '';
                 if (window.MathJax) {
                     MathJax.typesetPromise();
