@@ -20,26 +20,30 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
-        html, body {
+        html {
             margin: 0;
             padding: 0;
-            height: auto;
-            min-height: 150vh; /* Force scrollable height */
+            background: #333333; /* Match body background */
+            height: 100%;
             overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
         }
         body {
             font-family: Arial, sans-serif;
+            margin: 0 auto;
             padding: 10px;
             background: #333333;
             color: #F5F5F5;
             font-size: 12px;
+            min-height: 150vh; /* Force scrollable height */
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            overscroll-behavior: none; /* Prevent default overscroll effects */
         }
         details {
             margin-bottom: 10px;
             background: #444444;
             border-radius: 5px;
-            user-select: none; /* Prevent text selection on touch */
+            user-select: none;
         }
         summary {
             padding: 20px;
@@ -89,7 +93,7 @@
             body {
                 border-radius: 50%;
                 width: 100vmin;
-                height: auto;
+                min-height: 100vmin; /* Ensure it fills the viewport */
                 margin: 0 auto;
                 padding: 10px;
                 box-sizing: border-box;
@@ -99,7 +103,7 @@
 </head>
 <body>
     <details>
-        <summary>Section: Interpolation </summary>
+        <summary>Section: Interpolation Example</summary>
         <div class="content">
             Interpolate for $γ=0.75$:<br>
             $\frac{M_{ny0}}{f_c' A_g h_y} = \frac{0.212 + 0.235}{2} = 0.2235 \approx 0.224$<br>
@@ -112,31 +116,7 @@
     </details>
     <details>
         <summary>Section: Dummy 1</summary>
-        <div class="content">Dummy content to enable scrolling.
-            Interpolate for $γ=0.75$:<br>
-            $\frac{M_{ny0}}{f_c' A_g h_y} = \frac{0.212 + 0.235}{2} = 0.2235 \approx 0.224$<br>
-            $M_{ny0} = 0.224 \times 4 \times 240 \times 20 = 4300.8 \, \text{in-kips}$    Interpolate for $γ=0.75$:<br>$\frac{M_{ny0}}{f_c' A_g h_y} = \frac{0.212 + 0.235}{2} = 0.2235 \approx 0.224$<br>
-            $\frac{M_{ny0}}{f_c' A_g h_y} = \frac{0.212 + 0.235}{2} = 0.2235 \approx 0.224$<br>
-            $M_{ny0} = 0.224 \times 4 \times 240 \times 20 = 4300.8 \, \text{in-kips}$    Interpolate for $γ=0.75$:<br>$\frac{M_{ny0}}{f_c' A_g h_y} = \frac{0.212 + 0.235}{2} = 0.2235 \approx 0.224$<br>
-            $\frac{M_{ny0}}{f_c' A_g h_y} = \frac{0.212 + 0.235}{2} = 0.2235 \approx 0.224$<br>
-            $M_{ny0} = 0.224 \times 4 \times 240 \times 20 = 4300.8 \, \text{in-kips}$    Interpolate for $γ=0.75$:<br>$\frac{M_{ny0}}{f_c' A_g h_y} = \frac{0.212 + 0.235}{2} = 0.2235 \approx 0.224$<br>
-            $\frac{M_{ny0}}{f_c' A_g h_y} = \frac{0.212 + 0.235}{2} = 0.2235 \approx 0.224$<br>
-            $M_{ny0} = 0.224 \times 4 \times 240 \times 20 = 4300.8 \, \text{in-kips}$    Interpolate for $γ=0.75$:<br>$\frac{M_{ny0}}{f_c' A_g h_y} = \frac{0.212 + 0.235}{2} = 0.2235 \approx 0.224$<br>
-            $\frac{M_{ny0}}{f_c' A_g h_y} = \frac{0.212 + 0.235}{2} = 0.2235 \approx 0.224$<br>
-            $M_{ny0} = 0.224 \times 4 \times 240 \times 20 = 4300.8 \, \text{in-kips}$    Interpolate for $γ=0.75$:<br>$\frac{M_{ny0}}{f_c' A_g h_y} = \frac{0.212 + 0.235}{2} = 0.2235 \approx 0.224$<br>
-            $\frac{M_{ny0}}{f_c' A_g h_y} = \frac{0.212 + 0.235}{2} = 0.2235 \approx 0.224$<br>
-            $M_{ny0} = 0.224 \times 4 \times 240 \times 20 = 4300.8 \, \text{in-kips}$    Interpolate for $γ=0.75$:<br>$\frac{M_{ny0}}{f_c' A_g h_y} = \frac{0.212 + 0.235}{2} = 0.2235 \approx 0.224$<br>
-            $\frac{M_{ny0}}{f_c' A_g h_y} = \frac{0.212 + 0.235}{2} = 0.2235 \approx 0.224$<br>
-            $M_{ny0} = 0.224 \times 4 \times 240 \times 20 = 4300.8 \, \text{in-kips}$    Interpolate for $γ=0.75$:<br>$\frac{M_{ny0}}{f_c' A_g h_y} = \frac{0.212 + 0.235}{2} = 0.2235 \approx 0.224$<br>
-            $\frac{M_{ny0}}{f_c' A_g h_y} = \frac{0.212 + 0.235}{2} = 0.2235 \approx 0.224$<br>
-            $M_{ny0} = 0.224 \times 4 \times 240 \times 20 = 4300.8 \, \text{in-kips}$    Interpolate for $γ=0.75$:<br>$\frac{M_{ny0}}{f_c' A_g h_y} = \frac{0.212 + 0.235}{2} = 0.2235 \approx 0.224$<br>
-            $\frac{M_{ny0}}{f_c' A_g h_y} = \frac{0.212 + 0.235}{2} = 0.2235 \approx 0.224$<br>
-            $M_{ny0} = 0.224 \times 4 \times 240 \times 20 = 4300.8 \, \text{in-kips}$    Interpolate for $γ=0.75$:<br>$\frac{M_{ny0}}{f_c' A_g h_y} = \frac{0.212 + 0.235}{2} = 0.2235 \approx 0.224$<br>
-            $\frac{M_{ny0}}{f_c' A_g h_y} = \frac{0.212 + 0.235}{2} = 0.2235 \approx 0.224$<br>
-            $M_{ny0} = 0.224 \times 4 \times 240 \times 20 = 4300.8 \, \text{in-kips}$    Interpolate for $γ=0.75$:<br>$\frac{M_{ny0}}{f_c' A_g h_y} = \frac{0.212 + 0.235}{2} = 0.2235 \approx 0.224$<br>
-            $\frac{M_{ny0}}{f_c' A_g h_y} = \frac{0.212 + 0.235}{2} = 0.2235 \approx 0.224$<br>
-            $M_{ny0} = 0.224 \times 4 \times 240 \times 20 = 4300.8 \, \text{in-kips}$
-        </div>
+        <div class="content">Dummy content to enable scrolling.</div>
     </details>
     <details>
         <summary>Section: Dummy 2</summary>
@@ -165,9 +145,8 @@
             }
         }
 
-        // Bezel scrolling
         window.addEventListener('rotary-detent', (event) => {
-            console.log('Bezel event:', event.detail.direction); // Debug
+            console.log('Bezel event:', event.detail.direction);
             const direction = event.detail.direction;
             const scrollAmount = 50;
             if (direction === 'CW') {
@@ -177,7 +156,6 @@
             }
         }, { passive: true });
 
-        // Ensure touch scrolling works
         document.body.addEventListener('touchstart', () => {
             document.body.style.overflow = 'auto';
         }, { passive: true });
