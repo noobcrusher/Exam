@@ -20,27 +20,35 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: auto;
+            min-height: 150vh; /* Force scrollable height */
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
             padding: 10px;
             background: #333333;
             color: #F5F5F5;
             font-size: 12px;
-            overflow: auto;
         }
         details {
             margin-bottom: 10px;
             background: #444444;
             border-radius: 5px;
+            user-select: none; /* Prevent text selection on touch */
         }
         summary {
-            padding: 15px;
+            padding: 20px;
             cursor: pointer;
             outline: none;
-            min-height: 44px;
+            min-height: 48px;
             display: flex;
             align-items: center;
+            touch-action: manipulation;
         }
         .content {
             padding: 15px;
@@ -63,15 +71,15 @@
             cursor: pointer;
             font-size: 12px;
             margin-top: 10px;
-            min-height: 44px;
+            min-height: 48px;
         }
         @media (max-width: 400px) {
             body {
                 padding: 5px;
             }
             summary {
-                padding: 10px;
-                min-height: 44px;
+                padding: 15px;
+                min-height: 48px;
             }
             .content {
                 padding: 10px;
@@ -80,9 +88,8 @@
         @media (max-aspect-ratio: 1/1) {
             body {
                 border-radius: 50%;
-                overflow: auto;
                 width: 100vmin;
-                height: 100vmin;
+                height: auto;
                 margin: 0 auto;
                 padding: 10px;
                 box-sizing: border-box;
@@ -92,7 +99,7 @@
 </head>
 <body>
     <details>
-        <summary>Section: Interpolation Example</summary>
+        <summary>Section: Interpolation </summary>
         <div class="content">
             Interpolate for $γ=0.75$:<br>
             $\frac{M_{ny0}}{f_c' A_g h_y} = \frac{0.212 + 0.235}{2} = 0.2235 \approx 0.224$<br>
@@ -102,6 +109,18 @@
     <details>
         <summary>Section: Test LaTeX</summary>
         <div class="content">Test equation: $x^2 + y^2 = z^2$</div>
+    </details>
+    <details>
+        <summary>Section: Dummy 1</summary>
+        <div class="content">Dummy content to enable scrolling.</div>
+    </details>
+    <details>
+        <summary>Section: Dummy 2</summary>
+        <div class="content">More content for scrolling.</div>
+    </details>
+    <details>
+        <summary>Section: Dummy 3</summary>
+        <div class="content">Keep adding to test.</div>
     </details>
     <textarea id="newPost" placeholder="Enter section title and LaTeX (e.g., Title: $E=mc^2$)"></textarea>
     <button onclick="addPost()">Add Section</button>
@@ -122,16 +141,22 @@
             }
         }
 
-        // Bezel scrolling support
+        // Bezel scrolling
         window.addEventListener('rotary-detent', (event) => {
-            const direction = event.detail.direction; // "CW" (clockwise) or "CCW" (counterclockwise)
-            const scrollAmount = 50; // Adjust scroll speed
+            console.log('Bezel event:', event.detail.direction); // Debug
+            const direction = event.detail.direction;
+            const scrollAmount = 50;
             if (direction === 'CW') {
-                window.scrollBy(0, scrollAmount); // Scroll down
+                window.scrollBy({ top: scrollAmount, behavior: 'smooth' });
             } else if (direction === 'CCW') {
-                window.scrollBy(0, -scrollAmount); // Scroll up
+                window.scrollBy({ top: -scrollAmount, behavior: 'smooth' });
             }
-        });
+        }, { passive: true });
+
+        // Ensure touch scrolling works
+        document.body.addEventListener('touchstart', () => {
+            document.body.style.overflow = 'auto';
+        }, { passive: true });
     </script>
 </body>
 </html>
