@@ -109,9 +109,53 @@
         <details>
             <summary>Section: Interpolation Example</summary>
             <div class="content">
-                Interpolate for $γ=0.75$:<br>
-                $\frac{M_{ny0}}{f_c' A_g h_y} = \frac{0.212 + 0.235}{2} = 0.2235 \approx 0.224$<br>
-                $M_{ny0} = 0.224 \times 4 \times 240 \times 20 = 4300.8 \, \text{in-kips}$
+                ### Example 9.5: Biaxial Bending
+**Problem Statement**:
+- Column: 12x20 inches, 8 No. 9 bars, total steel area = 8.0 square inches.
+- Materials: concrete strength = 4 ksi, steel strength = 60 ksi.
+- Loads: factored axial load = 255 kips, moment about x-axis = 765 inch-kips, moment about y-axis = 1530 inch-kips.
+- Eccentricities: eccentricity about x-axis = 3 inches, eccentricity about y-axis = 6 inches.
+- Tasks:
+  $-$ (a) Check adequacy using the Reciprocal Load Method.
+  $-$ (b) Check adequacy using the Load Contour Method.
+
+#### Part (a): Reciprocal Load Method
+This method uses the formula: 1/P_n $=$ 1/P_n0x $+$ 1/P_n0y $-$ 1/P_0, where $P_{n}$ is the nominal axial capacity, $P_{n0x}$ and $P_{n0y}$ are the axial capacities at given eccentricities, and $P_{0}$ is the capacity at zero eccentricity.
+
+**Step 1: Calculate Column Parameters**:
+- Gross area: 12 × 20 = 240 square inches.
+- Reinforcement ratio: total steel area / gross area = 8 / 240 = 0.0333.
+- For x-axis (bending about x-axis, depth = 12 inches):
+  $-$ Eccentricity ratio: $3$ $/$ $12$ $=$ 0.25.
+  $-$ Gamma parameter: (12 $-$ 5) $/$ $12$ $=$ 0.583, use Graph A.5 (gamma $\approx$ 0.60).
+- For y-axis (bending about y-axis, depth = 20 inches):
+  $-$ Eccentricity ratio: $6$ $/$ $20$ $=$ 0.30.
+  $-$ Gamma parameter: (20 $-$ 5) $/$ $20$ $=$ 0.75, interpolate between Graphs A.6 (gamma $=$ 0.70) and A.7 (gamma $=$ 0.80).
+
+**Step 2: Find $P_{0}$ (Zero Eccentricity Capacity)**:
+- From Graph A.5, at eccentricity ratio = 0, reinforcement ratio ≈ 0.033, the notes give P_0 / (concrete strength × gross area) = 1.31.
+- P_0 = 1.31 × 4 × 240 = 1258 kips.
+
+**Step 3: Find $P_{n0x}$ (x-axis Capacity)**:
+- From Graph A.5, at eccentricity ratio = 0.25, reinforcement ratio ≈ 0.033, the notes give P_n0x / (concrete strength × gross area) = 0.65.
+- P_n0x = 0.65 × 4 × 240 = 624 kips.
+
+**Step 4: Find $P_{n0y}$ (y-axis Capacity)**:
+- From Graphs A.6 and A.7, at eccentricity ratio = 0.30, reinforcement ratio ≈ 0.033:
+  $-$ Graph A.6 (gamma $=$ 0.70): $P_{n0y}$ $/$ (concrete strength $\times$ gross area) $=$ 0.62.
+  $-$ Graph A.7 (gamma $=$ 0.80): $P_{n0y}$ $/$ (concrete strength $\times$ gross area) $=$ 0.66.
+- Interpolate for gamma = 0.75: (0.62 + 0.66) / 2 = 0.64.
+- P_n0y = 0.64 × 4 × 240 = 614 kips.
+
+**Step 5: Apply Reciprocal Formula**:
+- 1/P_n = 1/624 + 1/614 - 1/1258
+- 1/P_n = 0.001602 + 0.001629 - 0.000794 ≈ 0.002437
+- P_n = 1 / 0.002437 ≈ 410.3 kips.
+
+**Step 6: Check Adequacy**:
+- Strength reduction factor = 0.65 (compression-controlled):
+  $-$ Factored capacity $=$ $0.65$ $\times$ $410.3$ $\approx$ $267$ kips.
+- Given factored axial load = 255 k
             </div>
         </details>
         <details>
