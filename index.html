@@ -6,9 +6,7 @@
     <title>Math Posts</title>
     <script>
         window.MathJax = {
-            tex: {
-                inlineMath: [['$', '$']]
-            },
+            tex: { inlineMath: [['$', '$']] },
             startup: {
                 ready: () => {
                     MathJax.startup.defaultReady();
@@ -29,6 +27,7 @@
             background: #333333;
             color: #F5F5F5;
             font-size: 12px;
+            overflow: auto;
         }
         details {
             margin-bottom: 10px;
@@ -81,10 +80,10 @@
         @media (max-aspect-ratio: 1/1) {
             body {
                 border-radius: 50%;
-                overflow: hidden;
-                width: 100vw;
-                height: 100vw;
-                margin: 0;
+                overflow: auto;
+                width: 100vmin;
+                height: 100vmin;
+                margin: 0 auto;
                 padding: 10px;
                 box-sizing: border-box;
             }
@@ -93,7 +92,7 @@
 </head>
 <body>
     <details>
-        <summary>Section: Interpolation</summary>
+        <summary>Section: Interpolation Example</summary>
         <div class="content">
             Interpolate for $γ=0.75$:<br>
             $\frac{M_{ny0}}{f_c' A_g h_y} = \frac{0.212 + 0.235}{2} = 0.2235 \approx 0.224$<br>
@@ -122,6 +121,17 @@
                 }
             }
         }
+
+        // Bezel scrolling support
+        window.addEventListener('rotary-detent', (event) => {
+            const direction = event.detail.direction; // "CW" (clockwise) or "CCW" (counterclockwise)
+            const scrollAmount = 50; // Adjust scroll speed
+            if (direction === 'CW') {
+                window.scrollBy(0, scrollAmount); // Scroll down
+            } else if (direction === 'CCW') {
+                window.scrollBy(0, -scrollAmount); // Scroll up
+            }
+        });
     </script>
 </body>
 </html>
