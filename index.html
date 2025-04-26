@@ -4,6 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Math Posts</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$']]
+            },
+            startup: {
+                ready: () => {
+                    MathJax.startup.defaultReady();
+                    MathJax.startup.promise.then(() => {
+                        MathJax.typesetPromise();
+                    });
+                }
+            }
+        };
+    </script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
@@ -78,16 +93,16 @@
 </head>
 <body>
     <details>
-    <summary>Section: Interpolation Example</summary>
-    <div class="content">
-        Interpolate for $γ=0.75$:<br>
-        $\frac{M_{ny0}}{f_c' A_g h_y} = \frac{0.212 + 0.235}{2} = 0.2235 \approx 0.224$<br>
-        $M_{ny0} = 0.224 \times 4 \times 240 \times 20 = 4300.8 \, \text{in-kips}$
-    </div>
-</details>
+        <summary>Section: Interpolation Example</summary>
+        <div class="content">
+            Interpolate for $γ=0.75$:<br>
+            $\frac{M_{ny0}}{f_c' A_g h_y} = \frac{0.212 + 0.235}{2} = 0.2235 \approx 0.224$<br>
+            $M_{ny0} = 0.224 \times 4 \times 240 \times 20 = 4300.8 \, \text{in-kips}$
+        </div>
+    </details>
     <details>
-        <summary>Section 2: Quadratic Formula</summary>
-        <div class="content">$x = \frac{{-b \pm \sqrt{b^2 - 4ac}}}{2a}$</div>
+        <summary>Section: Test LaTeX</summary>
+        <div class="content">Test equation: $x^2 + y^2 = z^2$</div>
     </details>
     <textarea id="newPost" placeholder="Enter section title and LaTeX (e.g., Title: $E=mc^2$)"></textarea>
     <button onclick="addPost()">Add Section</button>
@@ -102,7 +117,9 @@
                 details.innerHTML = `<summary>${title.trim()}</summary><div class="content">${content}</div>`;
                 document.body.insertBefore(details, document.getElementById('newPost'));
                 document.getElementById('newPost').value = '';
-                MathJax.typeset();
+                if (window.MathJax) {
+                    MathJax.typesetPromise();
+                }
             }
         }
     </script>
