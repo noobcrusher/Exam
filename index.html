@@ -78,8 +78,27 @@
 </head>
 <body>
     <details>
-        <summary>Section 1: Pythagorean Theorem</summary>
-        <div class="content">$a^2 + b^2 = c^2$</div>
+        <summary>Example 9.5: Biaxial Bending (As Per Notes)</summary>
+        <div class="content">
+        
+Part (a): Reciprocal Load Method
+Parameters:
+Column: 12x20 in., 8 No. 9 bars, Ast=8.0 in2 A_{st} = 8.0 \, \text{in}^2 Ast​=8.0in2.
+ρg=8240=0.0333 \rho_g = \frac{8}{240} = 0.0333 ρg​=2408​=0.0333.
+About x-axis: exhx=312=0.25 \frac{e_x}{h_x} = \frac{3}{12} = 0.25 hx​ex​​=123​=0.25, γx≈0.60 \gamma_x \approx 0.60 γx​≈0.60 (Graph A.5).
+About y-axis: eyhy=620=0.30 \frac{e_y}{h_y} = \frac{6}{20} = 0.30 hy​ey​​=206​=0.30, γy=0.75 \gamma_y = 0.75 γy​=0.75.
+P0 P_0 P0​ (Graph A.5): P0=1.31×4×240=1258 kipsP_0 = 1.31 \times 4 \times 240 = 1258 \, \text{kips}P0​=1.31×4×240=1258kips
+Pn0x P_{n0x} Pn0x​ (Graph A.5): Pn0x=0.65×4×240=624 kipsP_{n0x} = 0.65 \times 4 \times 240 = 624 \, \text{kips}Pn0x​=0.65×4×240=624kips
+Pn0y P_{n0y} Pn0y​ (Graphs A.6, A.7): Pn0y=0.64×4×240=614 kipsP_{n0y} = 0.64 \times 4 \times 240 = 614 \, \text{kips}Pn0y​=0.64×4×240=614kips
+Reciprocal Formula: 1Pn=1624+1614−11258≈0.002437\frac{1}{P_n} = \frac{1}{624} + \frac{1}{614} - \frac{1}{1258} \approx 0.002437Pn​1​=6241​+6141​−12581​≈0.002437 Pn≈410.3 kipsP_n \approx 410.3 \, \text{kips}Pn​≈410.3kips
+Check: ϕPn=0.65×410.3≈267 kips>255\phi P_n = 0.65 \times 410.3 \approx 267 \, \text{kips} > 255ϕPn​=0.65×410.3≈267kips>255 Result: Adequate.
+Part (b): Load Contour Method
+Pn P_n Pn​: Pnfc′Ag=2550.65×4×240≈0.41\frac{P_n}{f_c' A_g} = \frac{255}{0.65 \times 4 \times 240} \approx 0.41fc′​Ag​Pn​​=0.65×4×240255​≈0.41
+Mny0 M_{ny0} Mny0​ (Graphs A.6, A.7): Mny0=0.224×4×240×20=4300.8 in-kipsM_{ny0} = 0.224 \times 4 \times 240 \times 20 = 4300.8 \, \text{in-kips}Mny0​=0.224×4×240×20=4300.8in-kips
+Mnx0 M_{nx0} Mnx0​ (Graph A.5): Mnx0=0.186×4×240×12=2142.72 in-kipsM_{nx0} = 0.186 \times 4 \times 240 \times 12 = 2142.72 \, \text{in-kips}Mnx0​=0.186×4×240×12=2142.72in-kips
+Factored Capacities: ϕMnx0=2140 in-kips,ϕMny0=4300 in-kips\phi M_{nx0} = 2140 \, \text{in-kips}, \quad \phi M_{ny0} = 4300 \, \text{in-kips}ϕMnx0​=2140in-kips,ϕMny0​=4300in-kips
+Interaction: (7652140)1.15+(15304300)1.15≈1.002≤1\left( \frac{765}{2140} \right)^{1.15} + \left( \frac{1530}{4300} \right)^{1.15} \approx 1.002 \leq 1(2140765​)1.15+(43001530​)1.15≈1.002≤1 Result: Adequate.
+        </div>
     </details>
     <details>
         <summary>Section 2: Quadratic Formula</summary>
